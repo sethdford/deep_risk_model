@@ -1,0 +1,105 @@
+[package]
+name = "deep_risk_model"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A deep learning-based risk model for financial markets"
+license = "MIT"
+
+[dependencies]
+# Core async runtime
+tokio = { version = "1.0", features = ["full"] }
+
+# HTTP client
+reqwest = { version = "0.11", features = ["json"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_derive.workspace = true
+serde_json = "1.0"
+
+# Logging and error handling
+tracing.workspace = true
+tracing-subscriber = "0.3"
+
+# Data processing
+ndarray = { version = "0.15", features = ["serde"] }
+ndarray-rand = "0.14"
+ndarray-linalg = { version = "0.16", features = ["openblas-system"] }
+ndarray-stats.workspace = true
+rand = "0.8"
+rand_distr.workspace = true
+rand_chacha = "0.3"
+num-traits = "0.2"
+
+# Async traits
+async-trait.workspace = true
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+parking_lot = "0.12"
+
+# Date/time handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# AWS Lambda dependencies
+lambda_http = "0.8"
+aws-config = "1.0"
+aws-sdk-s3 = "1.0"
+aws-types = "1.0"
+tokio-util = { version = "0.7", features = ["codec"] }
+
+# Additional dependencies
+rayon = "1.8"
+
+# Environment variable management
+dotenv.workspace = true
+
+# Web framework
+actix-web.workspace = true
+
+# Python bindings
+pyo3.workspace = true
+
+[dev-dependencies]
+# Async testing
+tokio-test = "0.4"
+
+# Logging for tests
+test-log = "0.2"
+
+# Benchmarking
+criterion = "0.5"
+
+# Property-based testing
+proptest = "1.0"
+
+# HTTP mocking
+mockito = "1.2"
+
+# Mocking
+mockall = "0.11"
+
+[[bin]]
+name = "bootstrap"
+path = "src/lambda.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.dev]
+opt-level = 0
+debug = 2
+
+[lib]
+name = "deep_risk_model"
+path = "src/lib.rs"
+
+[[bin]]
+name = "server"
+path = "src/bin/server.rs"
