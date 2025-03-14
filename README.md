@@ -1,13 +1,41 @@
 # Deep Risk Model
 
-A deep learning-based risk model for financial markets, implemented in Rust. This project combines Graph Attention Networks (GAT) and Gated Recurrent Units (GRU) to generate risk factors and estimate covariance matrices from market data.
+A Rust implementation of a deep learning-based risk model for financial markets, inspired by the research paper ["Deep Risk Model: A Deep Learning Solution for Mining Latent Risk Factors to Improve Covariance Matrix Estimation"](https://arxiv.org/abs/2107.05201) (Lin et al., 2021). This project combines Graph Attention Networks (GAT) and Gated Recurrent Units (GRU) to generate risk factors and estimate covariance matrices from market data.
+
+## Research Background
+
+This implementation is based on academic research that demonstrates how deep learning can be used to mine latent risk factors and improve covariance matrix estimation. The original paper shows:
+
+- 1.9% higher explained variance (measured by R²)
+- Improved risk reduction in global minimum variance portfolios
+- Novel approach to learning risk factors using neural networks
+- Effective combination of temporal and cross-sectional features
+
+Our implementation extends this research with:
+- Rust-based high-performance implementation
+- Combined GRU and GAT architecture for temporal-spatial feature extraction
+- Real-time factor generation through REST API
+- AWS Lambda integration for serverless deployment
+
+## Architecture
+
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   Market Data   │────▶│      GRU        │────▶│      GAT        │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                                                      │
+                                                      ▼
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  Risk Factors   │◀────│   Covariance    │◀────│  Factor Quality │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+```
 
 ## Features
 
 - Deep learning-based risk factor generation
 - Graph Attention Network for cross-sectional feature extraction
 - Gated Recurrent Unit for temporal feature processing
-- Covariance matrix estimation
+- Covariance matrix estimation with improved accuracy
 - REST API server for model inference
 - AWS Lambda integration
 - Python bindings via PyO3
@@ -163,12 +191,26 @@ cargo doc --no-deps --open
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+## Citation
+
+If you use this implementation in your research, please cite both this repository and the original paper:
+
+```bibtex
+@inproceedings{lin2021deep,
+  title={Deep Risk Model: A Deep Learning Solution for Mining Latent Risk Factors to Improve Covariance Matrix Estimation},
+  author={Lin, Hengxu and Zhou, Dong and Liu, Weiqing and Bian, Jiang},
+  booktitle={ACM International Conference on AI in Finance},
+  year={2021}
+}
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
+- Original research paper by Lin et al. (2021)
 - [ndarray](https://github.com/rust-ndarray/ndarray) for efficient array operations
 - [tokio](https://github.com/tokio-rs/tokio) for async runtime
 - [serde](https://github.com/serde-rs/serde) for serialization 
