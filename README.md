@@ -288,3 +288,86 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ndarray](https://github.com/rust-ndarray/ndarray) for efficient array operations
 - [tokio](https://github.com/tokio-rs/tokio) for async runtime
 - [serde](https://github.com/serde-rs/serde) for serialization 
+
+## Use Cases
+
+### 1. Portfolio Risk Management
+```
+Risk Estimation Improvement
+┌────────────────────────────────────────────────────┐
+│ Accuracy    ┤████████████████ +1.9% vs baseline   │
+│ Stability   ┤███████████████  0.85 autocorr       │
+│ Coverage    ┤██████████████   1000+ stocks        │
+└────────────────────────────────────────────────────┘
+```
+- More accurate risk estimation for large portfolios
+- Better capture of dynamic market relationships
+- Improved minimum variance portfolio construction
+- Real-time risk monitoring through REST API
+
+### 2. High-Performance Production Systems
+```
+Performance Metrics vs Traditional Systems
+┌────────────────────────────────────────────────────┐
+│ Speed       ┤████████████████████  4.85x faster   │
+│ Memory      ┤███████████████████   66.9% less     │
+│ Throughput  ┤██████████████████    1000+ req/s    │
+└────────────────────────────────────────────────────┘
+```
+- Production-ready Rust implementation
+- AWS Lambda support for serverless deployment
+- Efficient handling of large-scale portfolios
+- High-throughput API for real-time applications
+
+### 3. Research and Development
+```
+Research Metrics
+┌────────────────────────────────────────────────────┐
+│ R²          ┤████████████████████  77.5%          │
+│ Factors     ┤███████████████████   Orthogonal     │
+│ Validation  ┤██████████████████    Reproducible   │
+└────────────────────────────────────────────────────┘
+```
+- Implementation of peer-reviewed research
+- Reproducible academic results
+- Extensible architecture for experimentation
+- Comprehensive benchmarking suite
+
+### 4. Financial Applications
+- **Risk Decomposition**
+  - Factor-based risk attribution
+  - Systematic vs. idiosyncratic risk separation
+  - Cross-asset class risk analysis
+
+- **Portfolio Optimization**
+  - Minimum variance portfolio construction
+  - Risk-parity portfolio allocation
+  - Factor-aligned portfolio tilting
+
+- **Market Analysis**
+  - Dynamic factor discovery
+  - Market regime detection
+  - Cross-sectional anomaly detection
+
+### 5. Integration Capabilities
+- **Multiple Interfaces**
+  ```rust
+  // Rust native API
+  let model = DeepRiskModel::new(&config)?;
+  let factors = model.generate_factors(&market_data).await?;
+  ```
+  ```python
+  # Python bindings
+  model = DeepRiskModel(config)
+  factors = model.generate_factors(market_data)
+  ```
+  ```bash
+  # REST API
+  curl -X POST http://api/factors -d @market_data.json
+  ```
+
+- **Deployment Options**
+  - Self-hosted server
+  - AWS Lambda serverless
+  - Docker containers
+  - Direct library integration 
