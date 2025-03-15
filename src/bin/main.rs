@@ -4,7 +4,8 @@ use ndarray_rand::rand_distr::Normal;
 use deep_risk_model::{
     config::ModelConfig,
     model::DeepRiskModel,
-    MarketData, RiskFactors,
+    MarketData,
+    risk_model::RiskFactors,
     RiskModel,
 };
 use std::error::Error;

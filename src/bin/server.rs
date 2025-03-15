@@ -1,5 +1,11 @@
 use actix_web::{web, App, HttpResponse, HttpServer};
-use deep_risk_model::{DeepRiskModel, MarketData, RiskFactors, RiskModel, ModelConfig};
+use deep_risk_model::{
+    DeepRiskModel,
+    MarketData,
+    risk_model::RiskFactors,
+    RiskModel,
+    ModelConfig,
+};
 use ndarray::Array2;
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;

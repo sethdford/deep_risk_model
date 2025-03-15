@@ -1,25 +1,20 @@
 #![recursion_limit = "4096"]
 
-use ndarray::{Array1, Array2, ArrayD, IxDyn};
-
-pub mod model;
+pub mod config;
+pub mod error;
 pub mod gru;
 pub mod gat;
-pub mod error;
-pub mod config;
-pub mod mcp_client;
+pub mod model;
 pub mod risk_model;
-pub mod utils;
 pub mod types;
 
-pub use model::DeepRiskModel;
-pub use error::ModelError;
-pub use config::ModelConfig;
-pub use risk_model::{RiskModel, RiskFactors};
-pub use mcp_client::{MCPClient, MCPConfig};
-pub use gru::GRUModule;
-pub use gat::GATModule;
-pub use types::MarketData;
+pub use crate::{
+    config::ModelConfig,
+    error::ModelError,
+    model::DeepRiskModel,
+    risk_model::RiskModel,
+    types::MarketData,
+};
 
 pub mod array_utils {
     use ndarray::Array;
@@ -40,4 +35,10 @@ pub mod array_utils {
     {
         Array::from_shape_vec(shape, vec).unwrap()
     }
+}
+
+#[cfg(test)]
+mod tests {
+    use num_traits::Float;
+    // ... existing code ...
 }

@@ -4,8 +4,10 @@ use std::sync::Arc;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MarketData {
-    features: ArrayD<f32>,
-    returns: ArrayD<f32>,
+    /// Feature tensor of shape [num_stocks, seq_len, num_features]
+    pub features: ArrayD<f32>,
+    /// Returns tensor of shape [num_stocks]
+    pub returns: ArrayD<f32>,
 }
 
 impl MarketData {

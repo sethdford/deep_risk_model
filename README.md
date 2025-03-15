@@ -371,3 +371,29 @@ Research Metrics
   - AWS Lambda serverless
   - Docker containers
   - Direct library integration 
+
+## Performance Metrics
+
+1. **Current Performance**
+   ```
+   Factor Generation Time (100 stocks)
+   ┌────────────────────────────────────────┐
+   │ Base Time │████████████ 2.84s          │
+   └────────────────────────────────────────┘
+   ```
+
+2. **Memory Usage**
+   ```
+   Memory Usage for Factor Generation
+   ┌────────────────────────────────────────┐
+   │ Peak Usage │████████ 8.2 GB            │
+   └────────────────────────────────────────┘
+   ```
+
+3. **Optimization Goals**
+   - Target latency: < 1.0s for factor generation
+   - Memory efficiency: 66% reduction from baseline
+   - Real-time processing capability for 1000+ stocks
+
+For detailed benchmarks and methodology, see [BENCHMARKS.md](docs/BENCHMARKS.md).
+For theoretical foundations and mathematical details, see [THEORY.md](docs/THEORY.md). 
